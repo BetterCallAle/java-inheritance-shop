@@ -2,6 +2,7 @@ package org.lessons.java;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -15,9 +16,12 @@ public class Carts {
         System.out.println("Hai una carta fedeltà? 1 - Si | 2 - No");
         String hasCardString = scan.nextLine();
         boolean hasCard = false;
+
         if(hasCardString.equals("1")) {
             hasCard = true;
         }
+
+        Products[] products = new Products[productNumbers];
 
         for (int i = 0; i < productNumbers; i++) {
             System.out.println("Inserisci il nome del prodotto da inserire nel carrello");
@@ -47,7 +51,7 @@ public class Carts {
                 Smartphones product = new Smartphones(name, description, price, iva, memory);
 
                 System.out.println("------------");
-                System.out.println("Ecco il tuo carrello:");
+                System.out.println("Ecco il prodotto inserito :");
                 System.out.println(product.toString());
 
                 if (hasCard){
@@ -56,6 +60,8 @@ public class Carts {
                 } else {
                     totalPrice = totalPrice.add(product.getFullPrice());
                 }
+
+                products[i] = product;
 
             } else if (userChoice.equals("2")){
                 System.out.println("Inserisci la larghezza");
@@ -76,7 +82,7 @@ public class Carts {
                 Televisions product = new Televisions(name, description, price, iva, width, height, isSmart);
 
                 System.out.println("------------");
-                System.out.println("Ecco il tuo carrello:");
+                System.out.println("Ecco il prodotto inserito :");
                 System.out.println(product.toString());
 
                 if (hasCard){
@@ -85,6 +91,8 @@ public class Carts {
                 } else {
                     totalPrice = totalPrice.add(product.getFullPrice());
                 }
+
+                products[i] = product;
 
             } else if (userChoice.equals("3")) {
                 System.out.println("Inserisci il colore");
@@ -97,7 +105,7 @@ public class Carts {
                 Headphones product = new Headphones(name, description, price, iva, color, type);
 
                 System.out.println("------------");
-                System.out.println("Ecco il tuo carrello:");
+                System.out.println("Ecco il prodotto inserito :");
                 System.out.println(product.toString());
 
                 if (hasCard){
@@ -106,10 +114,14 @@ public class Carts {
                 } else {
                     totalPrice = totalPrice.add(product.getFullPrice());
                 }
+
+                products[i] = product;
             }
         }
 
-        System.out.println(totalPrice.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.println("Il tuo carrello:");
+        System.out.println(Arrays.toString(products));
+        System.out.println("Il prezzo totale è: " + totalPrice.setScale(2, RoundingMode.HALF_EVEN));
         scan.close();
 
     }
