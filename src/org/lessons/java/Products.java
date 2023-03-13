@@ -1,21 +1,26 @@
 package org.lessons.java;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 
 public class Products {
     private int code;
     private String name;
     private String description;
-    private double price;
-    private int iva;
+    private BigDecimal price;
+    private BigDecimal iva;
 
-    //Constructor
-    public Products(String name, String description, double price, int iva){
-        Random random = new Random();
-        code  = random.nextInt(9999999);
+    //Constructors
+    public Products(){
+        code = generateCode();
+    }
+
+    public Products(String name, String description, BigDecimal price, BigDecimal iva){
+        code = generateCode();
         this.name = name;
         this.description = description;
-        this.price = price;
+        this.price = price.setScale(2, RoundingMode.HALF_EVEN);
         this.iva = iva;
     }
 
@@ -36,16 +41,16 @@ public class Products {
         return description;
     }
 
-    public double getPrice(){
+    public BigDecimal getPrice(){
         return price;
     }
 
-    public int getIva(){
+    public BigDecimal getIva(){
         return iva;
     }
 
-    public double getFullPrice(){
-        return price + ((price * iva) / 100);
+    public BigDecimal getFullPrice(){
+        return price.add(price.multiply(iva));
     }
 
     // Setter
@@ -57,11 +62,11 @@ public class Products {
         this.description = description;
     }
 
-    public void setPrice(double price){
+    public void setPrice(BigDecimal price){
         this.price = price;
     }
 
-    public void setIva(int iva){
+    public void setIva(BigDecimal iva){
         this.iva = iva;
     }
 
@@ -75,5 +80,10 @@ public class Products {
                 ", price=" + price +
                 ", iva=" + iva +
                 '}';
+    }
+
+    private int generateCode(){
+        Random random = new Random();
+        return random.nextInt(9999999);
     }
 }
