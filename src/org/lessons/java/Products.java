@@ -74,10 +74,11 @@ public class Products {
     @Override
     public String toString() {
         return " code= " + code +
-                ", name= " + name +
-                ", description= " + description +
-                ", price= " + price +
-                ", iva= " + iva;
+                " , name= " + name +
+                " , description= " + description +
+                " , price= " + price +
+                " , iva= " + iva +
+                " , full price = " + getFullPrice();
     }
 
     private int generateCode(){
