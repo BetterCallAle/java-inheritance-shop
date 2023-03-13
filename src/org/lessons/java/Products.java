@@ -73,13 +73,11 @@ public class Products {
     //Methods
     @Override
     public String toString() {
-        return "Products{" +
-                "code=" + code +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", iva=" + iva +
-                '}';
+        return " code= " + code +
+                ", name= " + name +
+                ", description= " + description +
+                ", price= " + price +
+                ", iva= " + iva;
     }
 
     private int generateCode(){

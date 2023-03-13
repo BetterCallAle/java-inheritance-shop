@@ -36,9 +36,12 @@ public class Smartphones extends Products{
 
     //METHODS
 
+
     @Override
     public String toString() {
-        return "Smartphone: " + getName() + ", product code: " + getCode() + ", Description:" + getDescription() + ", price: " + getPrice() + ", price with iva: " + getFullPrice() + ", imei: " + imei + ", memory: " + memory;
+        return "Smartphone " + super.toString() +
+                " imei= " + imei +
+                ", memory= " + memory;
     }
 
     public int generateImei(){

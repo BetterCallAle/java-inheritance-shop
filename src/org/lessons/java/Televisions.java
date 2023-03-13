@@ -43,8 +43,12 @@ public class Televisions extends Products {
 
     //METHODS
 
+
     @Override
     public String toString() {
-        return "Tv: " + getName() + ", product code: " + getCode() + ", Description:" + getDescription() + ", price: " + getPrice() + ", price with iva: " + getFullPrice() + ", width: " + width + ", height: " + height + ", isSmart: " + isSmart;
+        return "Television " + super.toString() +
+                " width= " + width +
+                ", height= " + height +
+                ", isSmart= " + isSmart;
     }
 }

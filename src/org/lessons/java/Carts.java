@@ -10,6 +10,7 @@ public class Carts {
         Televisions t = new Televisions("Samsung 50 pollici", "Televisione incredibile", new BigDecimal("1300"), new BigDecimal("0.21"), new BigDecimal("111.50"),  new BigDecimal("62.33"), true);
         System.out.println(t.toString());
 
-
+        Headphones h = new Headphones("cuffie Logitech", "headset wireless della logitech", new BigDecimal("199.99"), new BigDecimal("0.21"), "red", "wireless");
+        System.out.println(h.toString());
     }
 }
