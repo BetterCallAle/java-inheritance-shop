@@ -28,6 +28,15 @@ public class Televisions extends Products {
         return isSmart;
     }
 
+    @Override
+    public BigDecimal getDiscountedPrice() {
+        if (!isSmart){
+            return getFullPrice().subtract(getFullPrice().subtract(getFullPrice().multiply(new BigDecimal("0.90"))));
+        } else {
+            return super.getDiscountedPrice();
+        }
+    }
+
     //SETTERS
     public void setWidth(BigDecimal width) {
         this.width = width;

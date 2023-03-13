@@ -23,6 +23,15 @@ public class Headphones extends Products {
         return type;
     }
 
+    @Override
+    public BigDecimal getDiscountedPrice() {
+        if (type.equals("cablate")){
+            return getFullPrice().subtract(getFullPrice().subtract(getFullPrice().multiply(new BigDecimal("0.93"))));
+        } else {
+            return super.getDiscountedPrice();
+        }
+    }
+
     //SETTERS
 
     public void setColor(String color) {

@@ -24,6 +24,15 @@ public class Smartphones extends Products{
         return memory;
     }
 
+    @Override
+    public BigDecimal getDiscountedPrice() {
+        if (memory < 32){
+            return getFullPrice().subtract(getFullPrice().subtract(getFullPrice().multiply(new BigDecimal("0.95"))));
+        } else {
+            return super.getDiscountedPrice();
+        }
+    }
+
     //SETTER
 
     public void setImei(int imei) {

@@ -53,6 +53,10 @@ public class Products {
         return price.add(price.multiply(iva));
     }
 
+    public BigDecimal getDiscountedPrice(){
+        return getFullPrice().subtract(getFullPrice().subtract(getFullPrice().multiply(new BigDecimal("0.98"))));
+    }
+
     // Setter
     public void setName(String name){
         this.name = name;
